@@ -88,7 +88,7 @@ def main():
     save_freq = 10
     test_freq = 10
     for epoch in range(1, total_epoch+1):
-        train_one_epoch(model, train_dataloader, criterion, optimizer, epoch, total_epoch, report_freq=1)
+        train_one_epoch(model, train_dataloader, criterion, optimizer, epoch, total_epoch, report_freq=5)
         scheduler.step()
 
         if epoch % test_freq == 0 or epoch == total_epoch:
