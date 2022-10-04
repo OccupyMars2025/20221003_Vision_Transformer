@@ -6,7 +6,6 @@ from dataset import get_dataloader
 from utils import AverageMeter
 
 # target: 93%+
-
 def train_one_epoch(model, dataloader, criterion, optimizer, epoch, total_epoch, report_freq=20):
     print(f'----- Training Epoch [{epoch}/{total_epoch}]:')
     loss_meter = AverageMeter()
