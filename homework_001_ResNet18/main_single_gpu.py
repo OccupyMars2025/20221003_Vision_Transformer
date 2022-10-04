@@ -31,7 +31,7 @@ def train_one_epoch(model, dataloader, criterion, optimizer, epoch, total_epoch,
         acc_meter.update(acc1.cpu().numpy()[0], batch_size)
 
         if batch_idx > 0 and batch_idx % report_freq == 0:
-            print(f'----- Batch[{batch_idx}/{len(dataloader)}], Loss: {loss_meter.avg:.5}, Acc@1: {acc_meter.avg:.4}')
+            print(f'-----Epoch[{epoch}/{total_epoch}], Batch[{batch_idx}/{len(dataloader)}], Loss: {loss_meter.avg:.5}, Acc@1: {acc_meter.avg:.4}')
 
     print(f'----- Epoch[{epoch}/{total_epoch}], Loss: {loss_meter.avg:.5}, Acc@1: {acc_meter.avg:.4}')
 
@@ -88,7 +88,7 @@ def main():
     save_freq = 10
     test_freq = 10
     for epoch in range(1, total_epoch+1):
-        train_one_epoch(model, train_dataloader, criterion, optimizer, epoch, total_epoch, report_freq=5)
+        train_one_epoch(model, train_dataloader, criterion, optimizer, epoch, total_epoch, report_freq=1)
         scheduler.step()
 
         if epoch % test_freq == 0 or epoch == total_epoch:
